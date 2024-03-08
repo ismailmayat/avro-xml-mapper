@@ -1,0 +1,225 @@
+{
+  "name": "IATA_AIDX_FlightLegNotifRQ",
+  "type": "record",
+  "namespace": "com.iaag",
+  "xpath": "/IATA_AIDX_FlightLegNotifRQ",
+  "xmlNamespaces": {
+    "ba": "http://baplc.com/extensionSchema",
+    "fo": "http://www.w3.org/1999/XSL/Format",
+    "thread": "java:java.lang.Thread",
+    "xs": "http://www.w3.org/2001/XMLSchema",
+    "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "null":"http://www.iata.org/IATA/2007/00"
+  },
+  "fields": [
+    {
+      "name": "EchoToken",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@EchoToken"
+    },
+    {
+      "name": "TimeStamp_value",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@TimeStamp"
+    },
+    {
+      "name": "Target",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@Target"
+    },
+    {
+      "name": "Version",
+      "type": "double",
+      "xpath": "@Version"
+    },
+    {
+      "name": "TransactionIdentifier",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@TransactionIdentifier"
+    },
+    {
+      "name": "SequenceNmbr",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@SequenceNmbr"
+    },
+    {
+      "name": "TransactionStatusCode",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@TransactionStatusCode"
+    },
+    {
+      "name": "PrimaryLangID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@PrimaryLangID"
+    },
+    {
+      "name": "AltLangID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@AltLangID"
+    },
+    {
+      "name": "RetransmissionIndicator",
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "default": null,
+      "xpath": "@RetransmissionIndicator"
+    },
+    {
+      "name": "CorrelationID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@CorrelationID"
+    },
+    {
+      "name": "AsynchronousAllowedInd",
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "default": null,
+      "xpath": "@AsynchronousAllowedInd"
+    },
+    {
+      "name": "CodeContext",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "xpath": "@CodeContext"
+    },
+    {
+      "name": "Originator",
+      "type": {
+        "type": "record",
+        "name": "Originator",
+        "fields": [
+          {
+            "name": "CompanyShortName",
+            "type": [
+              "null",
+              "string"
+            ],
+            "default": null,
+            "xpath": "@CompanyShortName"
+          },
+          {
+            "name": "TravelSector",
+            "type": [
+              "null",
+              "string"
+            ],
+            "default": null,
+            "xpath": "@TravelSector"
+          },
+          {
+            "name": "Code",
+            "type": [
+              "null",
+              "string"
+            ],
+            "default": null,
+            "xpath": "@Code"
+          },
+          {
+            "name": "CodeContext",
+            "type": [
+              "null",
+              "string"
+            ],
+            "default": null,
+            "xpath": "@CodeContext"
+          }
+        ]
+      },
+      "xpath": "Originator"
+    },
+    {
+      "name": "DeliveringSystem",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "DeliveringSystem",
+          "fields": [
+            {
+              "name": "CompanyShortName",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null,
+              "source": "@CompanyShortName"
+            },
+            {
+              "name": "TravelSector",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null,
+              "source": "@TravelSector"
+            },
+            {
+              "name": "Code",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null,
+              "source": "@Code"
+            },
+            {
+              "name": "CodeContext",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null,
+              "source": "@CodeContext"
+            }
+          ]
+        }
+      ],
+      "default": null,
+      "xpath": "DeliveringSystem"
+    }
+  ]
+}

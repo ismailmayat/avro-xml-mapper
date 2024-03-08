@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IATA_AIDX_FlightLegNotifRQ xmlns="http://www.iata.org/IATA/2007/00"
+                            xmlns:ba="http://baplc.com/extensionSchema"
+                            xmlns:fo="http://www.w3.org/1999/XSL/Format"
+                            xmlns:thread="java:java.lang.Thread"
+                            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" AltLangID="en-us" PrimaryLangID="en-us"
+                            SequenceNmbr="7186" Target="Test" TimeStamp="2024-01-08T16:29:22.997Z"
+                            TransactionIdentifier="FLT:VFU" Version="15.1">
+    <Originator CompanyShortName="BA" />
+    <DeliveringSystem CompanyShortName="BA" />
+    <FlightLeg>
+        <LegIdentifier>
+            <Airline CodeContext="3">BA</Airline>
+            <FlightNumber>281</FlightNumber>
+            <DepartureAirport CodeContext="3">LHR</DepartureAirport>
+            <ArrivalAirport CodeContext="3">LAX</ArrivalAirport>
+            <OriginDate>2024-01-09</OriginDate>
+            <RepeatNumber>1</RepeatNumber>
+        </LegIdentifier>
+        <LegData>
+            <OperationalStatus CodeContext="1245" RepeatIndex="1">SCH</OperationalStatus>
+            <OperationalStatus CodeContext="1245" RepeatIndex="2">SCH</OperationalStatus>
+            <ServiceType>J</ServiceType>
+            <EstFlightDuration xsi:nil="true" />
+            <OwnerAirline>
+                <Airline>BA</Airline>
+            </OwnerAirline>
+            <PlannedArrivalAptHistory CodeContext="3" RepeatIndex="1">LAX</PlannedArrivalAptHistory>
+            <AssociatedFlightLegAircraft RepeatIndex="1">
+                <Airline CodeContext="3">BA</Airline>
+                <FlightNumber>016</FlightNumber>
+                <DepartureAirport CodeContext="3">SIN</DepartureAirport>
+                <ArrivalAirport CodeContext="3">LHR</ArrivalAirport>
+                <OriginDate>2024-01-07</OriginDate>
+                <RepeatNumber>1</RepeatNumber>
+            </AssociatedFlightLegAircraft>
+            <AssociatedFlightLegAircraft RepeatIndex="2">
+                <Airline CodeContext="3">BA</Airline>
+                <FlightNumber>280</FlightNumber>
+                <DepartureAirport CodeContext="3">LAX</DepartureAirport>
+                <ArrivalAirport CodeContext="3">LHR</ArrivalAirport>
+                <OriginDate>2024-01-10</OriginDate>
+            </AssociatedFlightLegAircraft>
+            <AirportResources Usage="Actual">
+                <Resource DepartureOrArrival="Departure">
+                    <Runway />
+                    <AircraftTerminal>5</AircraftTerminal>
+                    <PublicTerminal RepeatIndex="1">5</PublicTerminal>
+                </Resource>
+                <Resource DepartureOrArrival="Arrival">
+                    <Runway />
+                    <AircraftTerminal>B</AircraftTerminal>
+                    <PublicTerminal RepeatIndex="1">B</PublicTerminal>
+                </Resource>
+            </AirportResources>
+            <OperationTime CodeContext="9750" OperationQualifier="SAT" RepeatIndex="1"
+                           TimeType="TAR" xsi:nil="true" />
+            <OperationTime CodeContext="9750" OperationQualifier="OFB" RepeatIndex="2"
+                           TimeType="SCT">2024-01-09T12:50:00Z</OperationTime>
+            <OperationTime CodeContext="9750" OperationQualifier="OFB" RepeatIndex="3"
+                           TimeType="CAL">2024-01-09T12:50:00Z</OperationTime>
+            <OperationTime CodeContext="9750" OperationQualifier="OFB" RepeatIndex="4"
+                           TimeType="TAR">2024-01-09T12:50:00Z</OperationTime>
+            <OperationTime CodeContext="9750" OperationQualifier="TKO" RepeatIndex="5"
+                           TimeType="CAL">2024-01-09T13:11:00Z</OperationTime>
+            <OperationTime CodeContext="9750" OperationQualifier="TKO" RepeatIndex="6"
+                           TimeType="TAR" xsi:nil="true" />
+            <OperationTime CodeContext="9750" OperationQualifier="TKO" RepeatIndex="7"
+                           TimeType="ACT" xsi:nil="true" />
+            <OperationTime CodeContext="9750" OperationQualifier="TDN" RepeatIndex="8"
+                           TimeType="EST">2024-01-10T00:00:00Z</OperationTime>
+            <OperationTime CodeContext="9750" OperationQualifier="TDN" RepeatIndex="9"
+                           TimeType="ACT" xsi:nil="true" />
+            <OperationTime CodeContext="9750" OperationQualifier="ONB" RepeatIndex="10"
+                           TimeType="SCT">2024-01-10T00:10:00Z</OperationTime>
+            <OperationTime CodeContext="9750" OperationQualifier="ONB" RepeatIndex="11"
+                           TimeType="CAL">2024-01-10T00:10:00Z</OperationTime>
+            <AircraftInfo>
+                <AircraftType>77W</AircraftType>
+                <Registration>GSTBJ</Registration>
+            </AircraftInfo>
+            <ClearanceAgreement>INT</ClearanceAgreement>
+        </LegData>
+        <TPA_Extension>
+            <ba:BA_AircraftConfigurationCode>F7J54</ba:BA_AircraftConfigurationCode>
+            <ba:FlightCrewAirline CodeContext="3">BA</ba:FlightCrewAirline>
+            <ba:CabinCrewAirline CodeContext="3">BA</ba:CabinCrewAirline>
+            <ba:AirborneRepeatNumber>1</ba:AirborneRepeatNumber>
+            <ba:AirborneReturnNumber>-</ba:AirborneReturnNumber>
+            <ba:AirborneSlotStatus>A</ba:AirborneSlotStatus>
+            <ba:DCS_AircraftTypeCode>77H</ba:DCS_AircraftTypeCode>
+            <ba:DCS_AircraftConfigurationCode>A</ba:DCS_AircraftConfigurationCode>
+            <ba:AircraftSubfleetCode>77H</ba:AircraftSubfleetCode>
+        </TPA_Extension>
+    </FlightLeg>
+</IATA_AIDX_FlightLegNotifRQ>

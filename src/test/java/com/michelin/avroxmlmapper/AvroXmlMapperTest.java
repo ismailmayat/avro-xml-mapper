@@ -1,5 +1,6 @@
 package com.michelin.avroxmlmapper;
 
+import com.iaag.IATA_AIDX_FlightLegNotifRQ;
 import com.michelin.avro.AltListItem;
 import com.michelin.avro.EmbeddedRecord;
 import com.michelin.avro.SubXMLTestModel;
@@ -29,6 +30,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class AvroXmlMapperTest {
 
 
+    @Test
+    void testFlight() throws Exception{
+        var input = IOUtils.toString(Objects.requireNonNull(AvroXmlMapperTest.class.getResourceAsStream("/flight-leg-not-rq.xml")), StandardCharsets.UTF_8);
+        var result = AvroXmlMapper.convertXmlStringToAvro(input,IATA_AIDX_FlightLegNotifRQ.class);
+
+        var xmlResult = AvroXmlMapper.convertAvroToXmlString(result);
+
+        assertEquals(result.getAltLangID(),"en-us");
+        assertEquals(result.getOriginator().getCompanyShortName(),"BA");
+
+
+    }
     @Test
     void testXmlToAvro() throws Exception {
         var input = IOUtils.toString(Objects.requireNonNull(AvroXmlMapperTest.class.getResourceAsStream("/xmlDefaultXpath.xml")), StandardCharsets.UTF_8);
@@ -259,5 +272,9 @@ class AvroXmlMapperTest {
                         SubXMLTestModelMultipleXpath.newBuilder().setSubStringField("item3").setSubIntField(3).setSubStringFieldFromAttribute("attribute3").build()
                 ))
                 .build();
+    }
+
+    private IATA_AIDX_FlightLegNotifRQ buildFlightLegTestModel(){
+        return IATA_AIDX_FlightLegNotifRQ.newBuilder().build();
     }
 }
