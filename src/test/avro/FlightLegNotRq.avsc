@@ -9,7 +9,7 @@
     "thread": "java:java.lang.Thread",
     "xs": "http://www.w3.org/2001/XMLSchema",
     "xsi": "http://www.w3.org/2001/XMLSchema-instance",
-    "null":"http://www.iata.org/IATA/2007/00"
+    "null": "http://www.iata.org/IATA/2007/00"
   },
   "fields": [
     {
@@ -186,7 +186,7 @@
                 "string"
               ],
               "default": null,
-              "source": "@CompanyShortName"
+              "xpath": "@CompanyShortName"
             },
             {
               "name": "TravelSector",
@@ -195,7 +195,7 @@
                 "string"
               ],
               "default": null,
-              "source": "@TravelSector"
+              "xpath": "@TravelSector"
             },
             {
               "name": "Code",
@@ -204,7 +204,7 @@
                 "string"
               ],
               "default": null,
-              "source": "@Code"
+              "xpath": "@Code"
             },
             {
               "name": "CodeContext",
@@ -213,13 +213,2372 @@
                 "string"
               ],
               "default": null,
-              "source": "@CodeContext"
+              "xpath": "@CodeContext"
             }
           ]
         }
       ],
       "default": null,
       "xpath": "DeliveringSystem"
+    },
+    {
+      "name": "FlightLeg",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "FlightLegType",
+          "fields": [
+            {
+              "name": "LegIdentifier",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "FlightLegIdentifierType",
+                  "fields": [
+                    {
+                      "name": "Airline",
+                      "type": {
+                        "type": "record",
+                        "name": "AirlineFlightLegIdentifierType",
+                        "fields": [
+                          {
+                            "name": "Airline",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "."
+                          },
+                          {
+                            "name": "CodeContext",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "@CodeContext"
+                          }
+                        ]
+                      },
+                      "xpath": "Airline"
+                    },
+                    {
+                      "name": "FlightNumber",
+                      "type": "string",
+                      "xpath": "FlightNumber"
+                    },
+                    {
+                      "name": "OperationalSuffix",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "OperationalSuffix"
+                    },
+                    {
+                      "name": "DepartureAirport",
+                      "type": {
+                        "type": "record",
+                        "name": "DepartureAirportFlightLegIdentifierType",
+                        "fields": [
+                          {
+                            "name": "DepartureAirport",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "."
+                          },
+                          {
+                            "name": "CodeContext",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "@CodeContext"
+                          }
+                        ]
+                      },
+                      "xpath": "DepartureAirport"
+                    },
+                    {
+                      "name": "ArrivalAirport",
+                      "type": {
+                        "type": "record",
+                        "name": "ArrivalAirportFlightLegIdentifierType",
+                        "fields": [
+                          {
+                            "name": "ArrivalAirport",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "."
+                          },
+                          {
+                            "name": "CodeContext",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "@CodeContext"
+                          }
+                        ]
+                      },
+                      "xpath": "ArrivalAirport"
+                    },
+                    {
+                      "name": "OriginDate",
+                      "type": "string",
+                      "xpath": "OriginDate"
+                    },
+                    {
+                      "name": "RepeatNumber",
+                      "type": [
+                        "null",
+                        {
+                          "type": "record",
+                          "name": "RepeatNumberFlightLegIdentifierType",
+                          "fields": [
+                            {
+                              "name": "CurrentInd",
+                              "type": [
+                                "null",
+                                "boolean"
+                              ],
+                              "default": null,
+                              "xpath": "@CurrentInd"
+                            },
+                            {
+                              "name": "AirborneReturnNumber",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@AirborneReturnNumber"
+                            },
+                            {
+                              "name": "RepeatNumber",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "."
+                            }
+                          ]
+                        }
+                      ],
+                      "default": null,
+                      "xpath": "RepeatNumber"
+                    }
+                  ]
+                }
+              ],
+              "default": null,
+              "xpath": "LegIdentifier"
+            },
+            {
+              "name": "LegData",
+              "type": {
+                "type": "record",
+                "name": "LegDataFlightLegType",
+                "fields": [
+                  {
+                    "name": "OperationalStatus",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "OperationalStatusType",
+                          "fields": [
+                            {
+                              "name": "OperationalStatus",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            },
+                            {
+                              "name": "CodeContext",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@CodeContext"
+                            },
+                            {
+                              "name": "FlightLegScope",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@FlightLegScope"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "OperationalStatus"
+                  },
+                  {
+                    "name": "PublicStatus",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "PublicStatusLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "PublicStatus",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "CodeContext",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@CodeContext"
+                            },
+                            {
+                              "name": "FlightLegScope",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@FlightLegScope"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "PublicStatus"
+                  },
+                  {
+                    "name": "OperatingAlliance",
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "default": null,
+                    "xpath": "OperatingAlliance"
+                  },
+                  {
+                    "name": "ServiceType",
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "default": null,
+                    "xpath": "ServiceType"
+                  },
+                  {
+                    "name": "TechnicalStopInd",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "TechnicalStopIndLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "TechnicalStopInd",
+                              "type": [
+                                "null",
+                                "boolean"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "DepartureOrArrival",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@DepartureOrArrival"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "TechnicalStopInd"
+                  },
+                  {
+                    "name": "DepSecurityCheckInd",
+                    "type": [
+                      "null",
+                      "boolean"
+                    ],
+                    "default": null,
+                    "xpath": "DepSecurityCheckInd"
+                  },
+                  {
+                    "name": "ArrSecurityCheckInd",
+                    "type": [
+                      "null",
+                      "boolean"
+                    ],
+                    "default": null,
+                    "xpath": "ArrSecurityCheckInd"
+                  },
+                  {
+                    "name": "EstFlightDuration",
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "default": null,
+                    "xpath": "EstFlightDuration"
+                  },
+                  {
+                    "name": "OwnerAirline",
+                    "type": [
+                      "null",
+                      {
+                        "type": "record",
+                        "name": "OwnerAirlineLegDataFlightLegType",
+                        "fields": [
+                          {
+                            "name": "Airline",
+                            "type": {
+                              "type": "record",
+                              "name": "AirlineOwnerAirlineLegDataFlightLegType",
+                              "fields": [
+                                {
+                                  "name": "Airline",
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ],
+                                  "xpath": "."
+                                },
+                                {
+                                  "name": "CodeContext",
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ],
+                                  "default": null,
+                                  "xpath": "@CodeContext"
+                                }
+                              ]
+                            },
+                            "xpath": "Airline"
+                          },
+                          {
+                            "name": "FlightNumber",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "FlightNumber"
+                          },
+                          {
+                            "name": "OperationalSuffix",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "OperationalSuffix"
+                          }
+                        ]
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "OwnerAirline"
+                  },
+                  {
+                    "name": "PlannedArrivalAptHistory",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "PlannedArrivalAptHistoryType",
+                          "fields": [
+                            {
+                              "name": "PlannedArrivalAptHistory",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "CodeContext",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@CodeContext"
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "PlannedArrivalAptHistory"
+                  },
+                  {
+                    "name": "SpecialEmphasis",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "SpecialEmphasisLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "SpecialEmphasis",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "SpecialEmphasis"
+                  },
+                  {
+                    "name": "IrregularityDelay",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "IrregularityDelayLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "ReasonCode",
+                              "type": "string",
+                              "xpath": "ReasonCode"
+                            },
+                            {
+                              "name": "Duration",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "Duration"
+                            },
+                            {
+                              "name": "DepartureOrArrival",
+                              "type": "string",
+                              "xpath": "@DepartureOrArrival"
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "IrregularityDelay"
+                  },
+                  {
+                    "name": "CabinClass",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "CabinClassLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "InflightService",
+                              "type": [
+                                "null",
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "record",
+                                    "name": "InflightServiceCabinClassLegDataFlightLegType",
+                                    "fields": [
+                                      {
+                                        "name": "InflightService",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "xpath": "."
+                                      },
+                                      {
+                                        "name": "RepeatIndex",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "@RepeatIndex"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ],
+                              "default": null,
+                              "xpath": "InflightService"
+                            },
+                            {
+                              "name": "InflightMealService",
+                              "type": [
+                                "null",
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "record",
+                                    "name": "InflightMealServiceCabinClassLegDataFlightLegType",
+                                    "fields": [
+                                      {
+                                        "name": "InflightMealService",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "xpath": "."
+                                      },
+                                      {
+                                        "name": "RepeatIndex",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "@RepeatIndex"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ],
+                              "default": null,
+                              "xpath": "InflightMealService"
+                            },
+                            {
+                              "name": "PaxCount",
+                              "type": [
+                                "null",
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "record",
+                                    "name": "PaxCountCabinClassLegDataFlightLegType",
+                                    "fields": [
+                                      {
+                                        "name": "PaxCount",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "xpath": "."
+                                      },
+                                      {
+                                        "name": "Qualifier",
+                                        "type": "string",
+                                        "xpath": "@Qualifier"
+                                      },
+                                      {
+                                        "name": "Usage",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "@Usage"
+                                      },
+                                      {
+                                        "name": "RepeatIndex",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "@RepeatIndex"
+                                      },
+                                      {
+                                        "name": "DestinationType",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "@DestinationType"
+                                      },
+                                      {
+                                        "name": "DCS_Usage",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "@DCS_Usage"
+                                      },
+                                      {
+                                        "name": "OriginationType",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "@OriginationType"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ],
+                              "default": null,
+                              "xpath": "PaxCount"
+                            },
+                            {
+                              "name": "SeatCapacity",
+                              "type": [
+                                "null",
+                                {
+                                  "type": "record",
+                                  "name": "SeatCapacityCabinClassLegDataFlightLegType",
+                                  "fields": [
+                                    {
+                                      "name": "SeatCapacity",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "xpath": "."
+                                    }
+                                  ]
+                                }
+                              ],
+                              "default": null,
+                              "xpath": "SeatCapacity"
+                            },
+                            {
+                              "name": "Class",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@Class"
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "CabinClass"
+                  },
+                  {
+                    "name": "SpecialCargo",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "SpecialCargoLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "SpecialCargo",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "SpecialCargo"
+                  },
+                  {
+                    "name": "CodeShareInfo",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "CodeShareInfoLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "Airline",
+                              "type": {
+                                "type": "record",
+                                "name": "AirlineCodeShareInfoLegDataFlightLegType",
+                                "fields": [
+                                  {
+                                    "name": "Airline",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ],
+                                    "xpath": "."
+                                  },
+                                  {
+                                    "name": "CodeContext",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ],
+                                    "default": null,
+                                    "xpath": "@CodeContext"
+                                  }
+                                ]
+                              },
+                              "xpath": "Airline"
+                            },
+                            {
+                              "name": "FlightNumber",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "FlightNumber"
+                            },
+                            {
+                              "name": "OperationalSuffix",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "OperationalSuffix"
+                            },
+                            {
+                              "name": "OriginationDate",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "OriginationDate"
+                            },
+                            {
+                              "name": "SharedAlliance",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "SharedAlliance"
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "CodeShareInfo"
+                  },
+                  {
+                    "name": "AssociatedFlightLegAircraft",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "AssociatedFlightLegAircraftType",
+                          "fields": [
+                            {
+                              "name": "Airline",
+                              "type": "AirlineFlightLegIdentifierType",
+                              "xpath": "Airline"
+                            },
+                            {
+                              "name": "FlightNumber",
+                              "type": "string",
+                              "xpath": "FlightNumber"
+                            },
+                            {
+                              "name": "OperationalSuffix",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "OperationalSuffix"
+                            },
+                            {
+                              "name": "DepartureAirport",
+                              "type": "DepartureAirportFlightLegIdentifierType",
+                              "xpath": "DepartureAirport"
+                            },
+                            {
+                              "name": "ArrivalAirport",
+                              "type": "ArrivalAirportFlightLegIdentifierType",
+                              "xpath": "ArrivalAirport"
+                            },
+                            {
+                              "name": "OriginDate",
+                              "type": "string",
+                              "xpath": "OriginDate"
+                            },
+                            {
+                              "name": "RepeatNumber",
+                              "type": [
+                                "null",
+                                "RepeatNumberFlightLegIdentifierType"
+                              ],
+                              "default": null,
+                              "xpath": "RepeatNumber"
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            },
+                            {
+                              "name": "FlightSequence",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@FlightSequence"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "AssociatedFlightLegAircraft"
+                  },
+                  {
+                    "name": "AssociatedFlightLegSchedule",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "AssociatedFlightLegScheduleLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "DepartureAirport",
+                              "type": {
+                                "type": "record",
+                                "name": "DepartureAirportAssociatedFlightLegScheduleLegDataFlightLegType",
+                                "fields": [
+                                  {
+                                    "name": "DepartureAirport",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ],
+                                    "xpath": "."
+                                  },
+                                  {
+                                    "name": "CodeContext",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ],
+                                    "default": null,
+                                    "xpath": "@CodeContext"
+                                  }
+                                ]
+                              },
+                              "xpath": "DepartureAirport"
+                            },
+                            {
+                              "name": "ArrivalAirport",
+                              "type": {
+                                "type": "record",
+                                "name": "ArrivalAirportAssociatedFlightLegScheduleLegDataFlightLegType",
+                                "fields": [
+                                  {
+                                    "name": "ArrivalAirport",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ],
+                                    "xpath": "."
+                                  },
+                                  {
+                                    "name": "CodeContext",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ],
+                                    "default": null,
+                                    "xpath": "@CodeContext"
+                                  }
+                                ]
+                              },
+                              "xpath": "ArrivalAirport"
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            },
+                            {
+                              "name": "FlightSequence",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@FlightSequence"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "AssociatedFlightLegSchedule"
+                  },
+                  {
+                    "name": "RemarkTextCode",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "RemarkTextCodeType",
+                          "fields": [
+                            {
+                              "name": "RemarkTextCode",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "Qualifier",
+                              "type": "string",
+                              "xpath": "@Qualifier"
+                            },
+                            {
+                              "name": "CodeContext",
+                              "type": "string",
+                              "xpath": "@CodeContext"
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            },
+                            {
+                              "name": "FlightLegScope",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@FlightLegScope"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "RemarkTextCode"
+                  },
+                  {
+                    "name": "RemarkFreeText",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "RemarkFreeTextLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "RemarkFreeText",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "FlightLegScope",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@FlightLegScope"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "RemarkFreeText"
+                  },
+                  {
+                    "name": "AirportResources",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "AirportResourcesLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "Resource",
+                              "type": [
+                                "null",
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "record",
+                                    "name": "ResourceAirportResourcesLegDataFlightLegType",
+                                    "fields": [
+                                      {
+                                        "name": "AirportZone",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "AirportZone"
+                                      },
+                                      {
+                                        "name": "AircraftParkingPosition",
+                                        "type": [
+                                          "null",
+                                          {
+                                            "type": "record",
+                                            "name": "AircraftParkingPositionType",
+                                            "fields": [
+                                              {
+                                                "name": "AircraftParkingPosition",
+                                                "type": [
+                                                  "null",
+                                                  "string"
+                                                ],
+                                                "xpath": "AircraftParkingPosition"
+                                              },
+                                              {
+                                                "name": "Qualifier",
+                                                "type": "string",
+                                                "xpath": "@Qualifier"
+                                              }
+                                            ]
+                                          }
+                                        ],
+                                        "default": null,
+                                        "xpath": "AircraftParkingPosition"
+                                      },
+                                      {
+                                        "name": "PassengerGate",
+                                        "type": [
+                                          "null",
+                                          {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "record",
+                                              "name": "PassengerGateResourceAirportResourcesLegDataFlightLegType",
+                                              "fields": [
+                                                {
+                                                  "name": "PassengerGate",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "xpath": "."
+                                                },
+                                                {
+                                                  "name": "RepeatIndex",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@RepeatIndex"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "default": null,
+                                        "xpath": "PassengerGate"
+                                      },
+                                      {
+                                        "name": "RemoteOperationalGate",
+                                        "type": [
+                                          "null",
+                                          {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "record",
+                                              "name": "RemoteOperationalGateResourceAirportResourcesLegDataFlightLegType",
+                                              "fields": [
+                                                {
+                                                  "name": "RemoteOperationalGate",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "xpath": "."
+                                                },
+                                                {
+                                                  "name": "RepeatIndex",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@RepeatIndex"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "default": null,
+                                        "xpath": "RemoteOperationalGate"
+                                      },
+                                      {
+                                        "name": "Runway",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "Runway"
+                                      },
+                                      {
+                                        "name": "AircraftTerminal",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "AircraftTerminal"
+                                      },
+                                      {
+                                        "name": "PublicTerminal",
+                                        "type": [
+                                          "null",
+                                          {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "record",
+                                              "name": "PublicTerminalResourceAirportResourcesLegDataFlightLegType",
+                                              "fields": [
+                                                {
+                                                  "name": "PublicTerminal",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "xpath": "."
+                                                },
+                                                {
+                                                  "name": "RepeatIndex",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@RepeatIndex"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "default": null,
+                                        "xpath": "PublicTerminal"
+                                      },
+                                      {
+                                        "name": "CrewBusInd",
+                                        "type": [
+                                          "null",
+                                          "boolean"
+                                        ],
+                                        "default": null,
+                                        "xpath": "CrewBusInd"
+                                      },
+                                      {
+                                        "name": "PaxBusInd",
+                                        "type": [
+                                          "null",
+                                          "boolean"
+                                        ],
+                                        "default": null,
+                                        "xpath": "PaxBusInd"
+                                      },
+                                      {
+                                        "name": "BaggageClaimUnit",
+                                        "type": [
+                                          "null",
+                                          {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "record",
+                                              "name": "BaggageClaimUnitResourceAirportResourcesLegDataFlightLegType",
+                                              "fields": [
+                                                {
+                                                  "name": "BaggageClaimUnit",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "xpath": "."
+                                                },
+                                                {
+                                                  "name": "Qualifier",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@Qualifier"
+                                                },
+                                                {
+                                                  "name": "AreaLocation",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@AreaLocation"
+                                                },
+                                                {
+                                                  "name": "RepeatIndex",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@RepeatIndex"
+                                                },
+                                                {
+                                                  "name": "ServiceClass",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@ServiceClass"
+                                                },
+                                                {
+                                                  "name": "BaggageProcess",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@BaggageProcess"
+                                                },
+                                                {
+                                                  "name": "SegregationName",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@SegregationName"
+                                                },
+                                                {
+                                                  "name": "OpenTime",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@OpenTime"
+                                                },
+                                                {
+                                                  "name": "CloseTime",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@CloseTime"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "default": null,
+                                        "xpath": "BaggageClaimUnit"
+                                      },
+                                      {
+                                        "name": "BaggageMakeupBelt",
+                                        "type": [
+                                          "null",
+                                          {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "record",
+                                              "name": "BaggageMakeupBeltResourceAirportResourcesLegDataFlightLegType",
+                                              "fields": [
+                                                {
+                                                  "name": "BaggageMakeupBelt",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "xpath": "."
+                                                },
+                                                {
+                                                  "name": "RepeatIndex",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@RepeatIndex"
+                                                },
+                                                {
+                                                  "name": "BaggageProcess",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@BaggageProcess"
+                                                },
+                                                {
+                                                  "name": "SegregationName",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@SegregationName"
+                                                },
+                                                {
+                                                  "name": "OpenTime",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@OpenTime"
+                                                },
+                                                {
+                                                  "name": "CloseTime",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@CloseTime"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "default": null,
+                                        "xpath": "BaggageMakeupBelt"
+                                      },
+                                      {
+                                        "name": "CheckInInfo",
+                                        "type": [
+                                          "null",
+                                          {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "record",
+                                              "name": "CheckInInfoResourceAirportResourcesLegDataFlightLegType",
+                                              "fields": [
+                                                {
+                                                  "name": "FirstPosition",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "FirstPosition"
+                                                },
+                                                {
+                                                  "name": "LastPosition",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "LastPosition"
+                                                },
+                                                {
+                                                  "name": "Qualifier",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@Qualifier"
+                                                },
+                                                {
+                                                  "name": "Location",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@Location"
+                                                },
+                                                {
+                                                  "name": "Class",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@Class"
+                                                },
+                                                {
+                                                  "name": "RepeatIndex",
+                                                  "type": [
+                                                    "null",
+                                                    "string"
+                                                  ],
+                                                  "default": null,
+                                                  "xpath": "@RepeatIndex"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "default": null,
+                                        "xpath": "CheckInInfo"
+                                      },
+                                      {
+                                        "name": "PreClearedGateInd",
+                                        "type": [
+                                          "null",
+                                          "boolean"
+                                        ],
+                                        "default": null,
+                                        "xpath": "PreClearedGateInd"
+                                      },
+                                      {
+                                        "name": "DeIceLocation",
+                                        "type": [
+                                          "null",
+                                          {
+                                            "type": "record",
+                                            "name": "DeIceLocationResourceAirportResourcesLegDataFlightLegType",
+                                            "fields": [
+                                              {
+                                                "name": "DeIceLocation",
+                                                "type": [
+                                                  "null",
+                                                  "string"
+                                                ],
+                                                "xpath": "."
+                                              },
+                                              {
+                                                "name": "Qualifier",
+                                                "type": [
+                                                  "null",
+                                                  "string"
+                                                ],
+                                                "default": null,
+                                                "xpath": "@Qualifier"
+                                              }
+                                            ]
+                                          }
+                                        ],
+                                        "default": null,
+                                        "xpath": "DeIceLocation"
+                                      },
+                                      {
+                                        "name": "DepartureOrArrival",
+                                        "type": "string",
+                                        "xpath": "@DepartureOrArrival"
+                                      },
+                                      {
+                                        "name": "ChargeType",
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ],
+                                        "default": null,
+                                        "xpath": "@ChargeType"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ],
+                              "default": null,
+                              "xpath": "Resource"
+                            },
+                            {
+                              "name": "Usage",
+                              "type": "string",
+                              "xpath": "@Usage"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "AirportResources"
+                  },
+                  {
+                    "name": "OperationTime",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "OperationTimeType",
+                          "fields": [
+                            {
+                              "name": "OperationTime",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "OperationQualifier",
+                              "type": "string",
+                              "xpath": "@OperationQualifier"
+                            },
+                            {
+                              "name": "CodeContext",
+                              "type": "string",
+                              "xpath": "@CodeContext"
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            },
+                            {
+                              "name": "TimeType",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@TimeType"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "OperationTime"
+                  },
+                  {
+                    "name": "AircraftInfo",
+                    "type": [
+                      "null",
+                      {
+                        "type": "record",
+                        "name": "AircraftInfoLegDataFlightLegType",
+                        "fields": [
+                          {
+                            "name": "AircraftType",
+                            "type": [
+                              "null",
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "record",
+                                  "name": "AircraftTypeAircraftInfoLegDataFlightLegType",
+                                  "fields": [
+                                    {
+                                      "name": "AircraftType",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "xpath": "."
+                                    },
+                                    {
+                                      "name": "CodeContext",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "default": null,
+                                      "xpath": "@CodeContext"
+                                    }
+                                  ]
+                                }
+                              }
+                            ],
+                            "default": null,
+                            "xpath": "AircraftType"
+                          },
+                          {
+                            "name": "AircraftSubType",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "AircraftSubType"
+                          },
+                          {
+                            "name": "Registration",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "Registration"
+                          },
+                          {
+                            "name": "TailNumber",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "TailNumber"
+                          },
+                          {
+                            "name": "CrewInfo",
+                            "type": [
+                              "null",
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "record",
+                                  "name": "CrewInfoAircraftInfoLegDataFlightLegType",
+                                  "fields": [
+                                    {
+                                      "name": "CrewInfo",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "xpath": "."
+                                    },
+                                    {
+                                      "name": "Qualifier",
+                                      "type": "string",
+                                      "xpath": "@Qualifier"
+                                    },
+                                    {
+                                      "name": "RepeatIndex",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "default": null,
+                                      "xpath": "@RepeatIndex"
+                                    },
+                                    {
+                                      "name": "Airline",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "default": null,
+                                      "xpath": "@Airline"
+                                    },
+                                    {
+                                      "name": "CodeContext",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "default": null,
+                                      "xpath": "@CodeContext"
+                                    }
+                                  ]
+                                }
+                              }
+                            ],
+                            "default": null,
+                            "xpath": "CrewInfo"
+                          },
+                          {
+                            "name": "AgentInfo",
+                            "type": [
+                              "null",
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "record",
+                                  "name": "AgentInfoAircraftInfoLegDataFlightLegType",
+                                  "fields": [
+                                    {
+                                      "name": "AgentInfo",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "xpath": "."
+                                    },
+                                    {
+                                      "name": "Qualifier",
+                                      "type": "string",
+                                      "xpath": "@Qualifier"
+                                    },
+                                    {
+                                      "name": "DepartureOrArrival",
+                                      "type": "string",
+                                      "xpath": "@DepartureOrArrival"
+                                    },
+                                    {
+                                      "name": "RepeatIndex",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "default": null,
+                                      "xpath": "@RepeatIndex"
+                                    }
+                                  ]
+                                }
+                              }
+                            ],
+                            "default": null,
+                            "xpath": "AgentInfo"
+                          },
+                          {
+                            "name": "FleetNumber",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "FleetNumber"
+                          },
+                          {
+                            "name": "CallSign",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "CallSign"
+                          },
+                          {
+                            "name": "DeadLoad",
+                            "type": [
+                              "null",
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "record",
+                                  "name": "DeadLoadType",
+                                  "fields": [
+                                    {
+                                      "name": "Type",
+                                      "type": "string",
+                                      "xpath": "Type"
+                                    },
+                                    {
+                                      "name": "Weight",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "type": "record",
+                                          "name": "MeasurementType",
+                                          "fields": [
+                                            {
+                                              "name": "Weight",
+                                              "type": [
+                                                "null",
+                                                "double"
+                                              ],
+                                              "xpath": "."
+                                            },
+                                            {
+                                              "name": "MeasurementUnit",
+                                              "type": [
+                                                "null",
+                                                "string"
+                                              ],
+                                              "default": null,
+                                              "xpath": "@MeasurementUnit"
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "default": null,
+                                      "xpath": "Weight"
+                                    },
+                                    {
+                                      "name": "DestinationType",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "default": null,
+                                      "xpath": "@DestinationType"
+                                    }
+                                  ]
+                                }
+                              }
+                            ],
+                            "default": null,
+                            "xpath": "DeadLoad"
+                          },
+                          {
+                            "name": "Baggage",
+                            "type": [
+                              "null",
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "record",
+                                  "name": "BaggageLoadType",
+                                  "fields": [
+                                    {
+                                      "name": "BagCount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "record",
+                                            "name": "BagCountBaggageLoadType",
+                                            "fields": [
+                                              {
+                                                "name": "BagCount",
+                                                "type": [
+                                                  "null",
+                                                  "string"
+                                                ],
+                                                "xpath": "."
+                                              },
+                                              {
+                                                "name": "Location",
+                                                "type": "string",
+                                                "xpath": "@Location"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      "default": null,
+                                      "xpath": "BagCount"
+                                    },
+                                    {
+                                      "name": "Weight",
+                                      "type": [
+                                        "null",
+                                        "MeasurementType"
+                                      ],
+                                      "default": null,
+                                      "xpath": "Weight"
+                                    },
+                                    {
+                                      "name": "ServiceClass",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "default": null,
+                                      "xpath": "@ServiceClass"
+                                    },
+                                    {
+                                      "name": "DestinationType",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "default": null,
+                                      "xpath": "@DestinationType"
+                                    },
+                                    {
+                                      "name": "RepeatIndex",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ],
+                                      "default": null,
+                                      "xpath": "@RepeatIndex"
+                                    }
+                                  ]
+                                }
+                              }
+                            ],
+                            "default": null,
+                            "xpath": "Baggage"
+                          },
+                          {
+                            "name": "Fuel",
+                            "type": [
+                              "null",
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "record",
+                                  "name": "FuelDataType",
+                                  "fields": [
+                                    {
+                                      "name": "Type",
+                                      "type": {
+                                        "type": "record",
+                                        "name": "FuelQualifierType",
+                                        "fields": [
+                                          {
+                                            "name": "FuelDataType",
+                                            "type": [
+                                              "null",
+                                              "string"
+                                            ],
+                                            "xpath": "."
+                                          },
+                                          {
+                                            "name": "extension",
+                                            "type": [
+                                              "null",
+                                              "string"
+                                            ],
+                                            "default": null,
+                                            "xpath": "@extension"
+                                          }
+                                        ]
+                                      },
+                                      "xpath": "Type"
+                                    },
+                                    {
+                                      "name": "Quantity",
+                                      "type": "MeasurementType",
+                                      "xpath": "Quantity"
+                                    }
+                                  ]
+                                }
+                              }
+                            ],
+                            "default": null,
+                            "xpath": "Fuel"
+                          }
+                        ]
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "AircraftInfo"
+                  },
+                  {
+                    "name": "ClearanceAgreement",
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "default": null,
+                    "xpath": "ClearanceAgreement"
+                  },
+                  {
+                    "name": "PublicFlightDisplay",
+                    "type": [
+                      "null",
+                      {
+                        "type": "record",
+                        "name": "PublicFlightDisplayLegDataFlightLegType",
+                        "fields": [
+                          {
+                            "name": "AirlineType",
+                            "type": {
+                              "type": "record",
+                              "name": "AirlineTypePublicFlightDisplayLegDataFlightLegType",
+                              "fields": [
+                                {
+                                  "name": "AirlineType",
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ],
+                                  "xpath": "."
+                                },
+                                {
+                                  "name": "CodeContext",
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ],
+                                  "default": null,
+                                  "xpath": "@CodeContext"
+                                }
+                              ]
+                            },
+                            "xpath": "AirlineType"
+                          },
+                          {
+                            "name": "FlightNumber",
+                            "type": "string",
+                            "xpath": "FlightNumber"
+                          }
+                        ]
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "PublicFlightDisplay"
+                  },
+                  {
+                    "name": "FlightCrewAirline",
+                    "type": [
+                      "null",
+                      {
+                        "type": "record",
+                        "name": "FlightCrewAirlineLegDataFlightLegType",
+                        "fields": [
+                          {
+                            "name": "FlightCrewAirline",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "xpath": "."
+                          },
+                          {
+                            "name": "CodeContext",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "@CodeContext"
+                          }
+                        ]
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "FlightCrewAirline"
+                  },
+                  {
+                    "name": "CabinCrewAirline",
+                    "type": [
+                      "null",
+                      {
+                        "type": "record",
+                        "name": "CabinCrewAirlineLegDataFlightLegType",
+                        "fields": [
+                          {
+                            "name": "CabinCrewAirline",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "xpath": "."
+                          },
+                          {
+                            "name": "CodeContext",
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "default": null,
+                            "xpath": "@CodeContext"
+                          }
+                        ]
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "CabinCrewAirline"
+                  },
+                  {
+                    "name": "OperationDuration",
+                    "type": [
+                      "null",
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "OperationDurationLegDataFlightLegType",
+                          "fields": [
+                            {
+                              "name": "OperationDuration",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "xpath": "."
+                            },
+                            {
+                              "name": "RepeatIndex",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@RepeatIndex"
+                            },
+                            {
+                              "name": "TimeType",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@TimeType"
+                            },
+                            {
+                              "name": "OperationQualifier",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null,
+                              "xpath": "@OperationQualifier"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "default": null,
+                    "xpath": "OperationDuration"
+                  },
+                  {
+                    "name": "FlightClassification",
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "default": null,
+                    "xpath": "@FlightClassification"
+                  },
+                  {
+                    "name": "InternationalStatus",
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "default": null,
+                    "xpath": "@InternationalStatus"
+                  }
+                ]
+              },
+              "xpath": "LegData"
+            },
+            {
+              "name": "TPA_Extension",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "TPA_ExtensionsType",
+                  "fields": [
+                    {
+                      "name": "BA_AircraftConfigurationCode",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:BA_AircraftConfigurationCode"
+                    },
+                    {
+                      "name": "FlightCrewAirline",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:FlightCrewAirline"
+                    },
+                    {
+                      "name": "CodeContext",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:FlightCrewAirline/@CodeContext"
+                    },
+                    {
+                      "name": "CabinCrewAirline",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:CabinCrewAirline"
+                    },
+                    {
+                      "name": "CabinCrewAirlineCodeContext",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:CabinCrewAirline/@CodeContext"
+                    },
+                    {
+                      "name": "AirborneRepeatNumber",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:AirborneRepeatNumber"
+                    },
+                    {
+                      "name": "AirborneReturnNumber",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:AirborneReturnNumber"
+                    },
+                    {
+                      "name": "AirborneSlotStatus",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:AirborneSlotStatus"
+                    },
+                    {
+                      "name": "DCS_AircraftTypeCode",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:DCS_AircraftTypeCode"
+                    },
+                    {
+                      "name": "DCS_AircraftConfigurationCode",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:DCS_AircraftConfigurationCode"
+                    },
+                    {
+                      "name": "AircraftSubfleetCode",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null,
+                      "xpath": "ba:AircraftSubfleetCode"
+                    }
+                  ]
+                }
+              ],
+              "default": null,
+              "xpath": "TPA_Extension"
+            }
+          ]
+        }
+      },
+      "xpath": "FlightLeg"
     }
   ]
 }

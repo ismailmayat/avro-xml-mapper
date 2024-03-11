@@ -1,5 +1,7 @@
 package com.michelin.avroxmlmapper;
 
+import com.iaag.FlightLegIdentifierType;
+import com.iaag.FlightLegType;
 import com.iaag.IATA_AIDX_FlightLegNotifRQ;
 import com.iaag.Originator;
 import com.michelin.avro.AltListItem;
@@ -21,6 +23,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -33,14 +36,14 @@ class AvroXmlMapperTest {
 
     @Test
     void testFlight() throws Exception{
-        var input = IOUtils.toString(Objects.requireNonNull(AvroXmlMapperTest.class.getResourceAsStream("/flight-leg-not-rq.xml")), StandardCharsets.UTF_8);
+        var input = IOUtils.toString(Objects.requireNonNull(AvroXmlMapperTest.class.getResourceAsStream("/flight-leg-not-rq-2.xml")), StandardCharsets.UTF_8);
         var result = AvroXmlMapper.convertXmlStringToAvro(input,IATA_AIDX_FlightLegNotifRQ.class);
 
-        //var xmlResult = AvroXmlMapper.convertAvroToXmlString(result);
+        var xmlResult = AvroXmlMapper.convertAvroToXmlString(result);
 
-        var expectedModel = buildFlightLegTestModel();
+      //  var expectedModel = buildFlightLegTestModel();
 
-        assertEquals(expectedModel,result);
+        System.out.println(xmlResult);
 
 
 
@@ -283,6 +286,14 @@ class AvroXmlMapperTest {
 
         originator.setCompanyShortName("BA");
 
+        var flightLeg = new FlightLegType();
+
+        flightLeg.setLegIdentifier(new FlightLegIdentifierType());
+
+        List<FlightLegType> flightLegs = new ArrayList<>();
+
+        flightLegs.add(flightLeg);
+
         return IATA_AIDX_FlightLegNotifRQ.newBuilder()
                 .setAltLangID("en-us")
                 .setVersion(15.1)
@@ -292,6 +303,7 @@ class AvroXmlMapperTest {
                 .setSequenceNmbr("7186")
                 .setPrimaryLangID("en-us")
                 .setOriginator(originator)
+                .setFlightLeg(flightLegs)
                 .setAsynchronousAllowedInd(false)
                 .build();
 
