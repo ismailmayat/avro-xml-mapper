@@ -1,6 +1,7 @@
 package com.michelin.avroxmlmapper;
 
 import com.iaag.IATA_AIDX_FlightLegNotifRQ;
+import com.iaag.Originator;
 import com.michelin.avro.AltListItem;
 import com.michelin.avro.EmbeddedRecord;
 import com.michelin.avro.SubXMLTestModel;
@@ -35,10 +36,12 @@ class AvroXmlMapperTest {
         var input = IOUtils.toString(Objects.requireNonNull(AvroXmlMapperTest.class.getResourceAsStream("/flight-leg-not-rq.xml")), StandardCharsets.UTF_8);
         var result = AvroXmlMapper.convertXmlStringToAvro(input,IATA_AIDX_FlightLegNotifRQ.class);
 
-        var xmlResult = AvroXmlMapper.convertAvroToXmlString(result);
+        //var xmlResult = AvroXmlMapper.convertAvroToXmlString(result);
 
-        assertEquals(result.getAltLangID(),"en-us");
-        assertEquals(result.getOriginator().getCompanyShortName(),"BA");
+        var expectedModel = buildFlightLegTestModel();
+
+        assertEquals(expectedModel,result);
+
 
 
     }
@@ -275,6 +278,23 @@ class AvroXmlMapperTest {
     }
 
     private IATA_AIDX_FlightLegNotifRQ buildFlightLegTestModel(){
-        return IATA_AIDX_FlightLegNotifRQ.newBuilder().build();
+
+        var originator = new Originator();
+
+        originator.setCompanyShortName("BA");
+
+        return IATA_AIDX_FlightLegNotifRQ.newBuilder()
+                .setAltLangID("en-us")
+                .setVersion(15.1)
+                .setTimeStampValue("2024-01-08T16:29:22.997Z")
+                .setTarget("Test")
+                .setTransactionIdentifier("FLT:VFU")
+                .setSequenceNmbr("7186")
+                .setPrimaryLangID("en-us")
+                .setOriginator(originator)
+                .setAsynchronousAllowedInd(false)
+                .build();
+
+
     }
 }
