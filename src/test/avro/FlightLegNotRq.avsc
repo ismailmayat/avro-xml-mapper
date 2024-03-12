@@ -1,7 +1,7 @@
 {
   "name": "IATA_AIDX_FlightLegNotifRQ",
   "type": "record",
-  "namespace": "com.iaag",
+  "namespace": "com.iag",
   "xpath": "/IATA_AIDX_FlightLegNotifRQ",
   "xmlNamespaces": {
     "ba": "http://baplc.com/extensionSchema",
